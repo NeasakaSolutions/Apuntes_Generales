@@ -15,3 +15,14 @@ Soy un comentario
 */
 ```
 - El codigo comentado no se ejecuta
+
+---
+
+## Variables:
+- string - Cadena de texto
+- number - Numero
+- boolean - Boleano (verdadero o falso)
+- object - Objeto
+- function - Funciones
+- null - Valor nulo
+- undefined - Valor sin definir
