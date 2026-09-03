@@ -26,3 +26,33 @@ Soy un comentario
 - function - Funciones
 - null - Valor nulo
 - undefined - Valor sin definir
+
+---
+
+## Operadores aritmeticos:
+```bash
+= Operador de asignacion. Se usa para asignar valores a una variable
++ Suma
+- Resta
+* Multiplicacion
+/ Division
+% Modulo
+++ Aumento
+-- Disminucion
+```
+
+---
+
+## Operadores de comparacion:
+```bash
+== Igual que
+=== Igual en valor y typo
+!= Diferente
+!== Diferenteen valor y diferente en typo
+> Mayor que
+< Menor que
+>= Mayor o igual que
+<= Menor o igual que
+? Operador ternario
+```
+
