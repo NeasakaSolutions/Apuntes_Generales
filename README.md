@@ -1,129 +1,52 @@
-# Actualizar ramas de manera individual
+# Apuntes de Desarrollo
 
-La idea es trabajar en cada rama por separado y después integrar los cambios en una rama intermedia llamada `integration`. Esta rama reunirá los apuntes de todos los lenguajes y frameworks antes de actualizar `main`.
+Repositorio dedicado a recopilar, organizar y mantener apuntes sobre diferentes lenguajes de programación, frameworks y tecnologías de desarrollo de software.
 
-De esta manera, se puede comprobar que todos los cambios estén correctos sin comprometer directamente la rama principal.
+El contenido está pensado como material de consulta y referencia, incluyendo conceptos, sintaxis, ejemplos de código, comandos y notas importantes adquiridas durante el aprendizaje y la práctica.
 
-## 1. Actualizar Python
+## Contenido
 
-Primero, realiza tus cambios en la rama `python`:
+El repositorio se encuentra organizado por tecnologías, utilizando carpetas independientes para cada una:
 
-```bash
-git switch python
-git add .
-git commit -m "Agregar nuevos apuntes de Python"
-git push origin python
-```
+| Tecnología | Descripción |
+|---|---|
+| JavaScript | Apuntes sobre fundamentos, sintaxis y características del lenguaje. |
+| Python | Conceptos, sintaxis, estructuras de datos y ejemplos. |
+| Express | Apuntes sobre desarrollo backend y creación de APIs con Express.js. |
+| React | Conceptos, componentes, hooks y desarrollo de interfaces. |
+| Next.js | Apuntes sobre desarrollo web utilizando Next.js. |
 
-## 2. Actualizar JavaScript
+El contenido puede ampliarse conforme se incorporen nuevas tecnologías y temas.
 
-Realiza tus cambios en la rama `javascript`:
+## Organización de ramas
 
-```bash
-git switch javascript
-git add .
-git commit -m "Agregar nuevos apuntes de JavaScript"
-git push origin javascript
-```
+Para mantener una mejor organización, cada lenguaje o framework cuenta con su propia rama:
 
-## 3. Actualizar Express
+- `javascript`: apuntes de JavaScript.
+- `python`: apuntes de Python.
+- `express`: apuntes de Express.
+- `react`: apuntes de React.
+- `nextjs`: apuntes de Next.js.
+- `integration`: reúne los contenidos de todas las tecnologías y permite comprobar los cambios antes de incorporarlos a la rama principal.
+- `main`: contiene la recopilación general y estable de todos los apuntes.
 
-Realiza tus cambios en la rama `express`:
+## Propósito
 
-```bash
-git switch express
-git add .
-git commit -m "Agregar nuevos apuntes de Express"
-git push origin express
-```
+Este repositorio tiene como objetivo:
 
-## 4. Integrar las ramas en integration
+- Centralizar apuntes de diferentes tecnologías.
+- Facilitar la consulta de conceptos y comandos.
+- Mantener ejemplos de código como referencia.
+- Organizar el material de aprendizaje de manera estructurada.
+- Incorporar nuevos temas y tecnologías progresivamente.
 
-Una vez que hayas actualizado las ramas individuales, cambia a `integration`:
+## Consideraciones
 
-```bash
-git switch integration
-git pull origin integration
-```
+- El contenido corresponde únicamente a apuntes y material de referencia.
+- Los ejemplos de código tienen fines educativos y pueden requerir modificaciones para utilizarse en proyectos reales.
+- La información puede contener notas personales, experimentos y ejemplos desarrollados durante el aprendizaje.
+- El repositorio se encuentra en constante actualización.
 
-Ahora copia únicamente las carpetas correspondientes desde cada rama:
+---
 
-```bash
-git restore --source=python -- Python
-git restore --source=javascript -- Javascript
-git restore --source=express -- Express
-```
-
-Agrega los cambios, crea el commit y súbelos a GitHub:
-
-```bash
-git add .
-git commit -m "Integrar apuntes de Python, JavaScript y Express"
-git push origin integration
-```
-
-**Importante:** Se utiliza `git restore` en lugar de `git merge` para evitar incorporar las eliminaciones de carpetas que existen en las ramas individuales.
-
-## 5. Comprobar la integración
-
-Antes de actualizar `main`, verifica que estén presentes todas las carpetas:
-
-```bash
-git ls-tree --name-only HEAD
-```
-
-La estructura esperada es:
-
-```text
-Express
-Javascript
-Python
-README.md
-```
-
-También puedes revisar los cambios que se integrarán:
-
-```bash
-git diff main..integration
-```
-
-Y consultar el historial de las ramas:
-
-```bash
-git log --oneline --graph --all
-```
-
-## 6. Actualizar main
-
-Una vez que hayas comprobado que todo funciona correctamente, integra `integration` en `main`:
-
-```bash
-git switch main
-git pull origin main
-git merge integration
-git push origin main
-```
-
-De esta manera, `main` recibirá los cambios previamente revisados en `integration`.
-
-## 7. Estructura final del repositorio
-
-| Rama | Contenido | Función |
-|---|---|---|
-| `main` | Todas las carpetas | Versión principal y estable |
-| `integration` | Todas las carpetas | Integración y comprobación de cambios |
-| `python` | Python | Desarrollo de apuntes de Python |
-| `javascript` | Javascript | Desarrollo de apuntes de JavaScript |
-| `express` | Express | Desarrollo de apuntes de Express |
-
-## 8. Consideraciones importantes
-
-- No utilizar `git merge` directamente desde las ramas individuales hacia `main` o `integration`, ya que podrían incorporarse eliminaciones de otras carpetas.
-- `git restore --source=...` copia el contenido de la carpeta indicada desde la rama de origen hacia la rama actual.
-- Si no existen cambios, Git mostrará `nothing to commit, working tree clean`. Es normal.
-- Si tienes cambios pendientes, guárdalos antes de cambiar de rama.
-- Los comandos utilizan los nombres exactos de las carpetas, respetando mayúsculas y minúsculas.
-- Se recomienda mantener `main` protegida para evitar modificaciones accidentales.
-- Si encuentras errores durante la integración, puedes corregirlos en `integration` antes de llevar los cambios a `main`.
-
-**De esta manera, cada lenguaje o framework tendrá su propio historial de trabajo, `integration` funcionará como entorno de integración y `main` conservará la versión estable y completa de todos tus apuntes.**
+**Repositorio de consulta y aprendizaje sobre desarrollo de software.**
